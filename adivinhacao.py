@@ -6,10 +6,16 @@ print('Bem vindo ao Jogo de Adivinhação!')
 print('*********************************')
 
 nome = input("Digite seu nome: ")
-print('{}, tente adivinhar o número secreto'.format(nome))
+print('{}, escolha o nível de dificuldade'.format(nome))
+print('(1) Fácil (2) Médio (3) Difícil')
+nivel = int(input('Nível escolhido: '))
+pontos = 1000
+
+if(nivel == 1): total_de_tentativas = 20
+elif(nivel == 2): total_de_tentativas = 10
+else: total_de_tentativas = 5
 
 numero_secreto = randrange(1, 101)
-total_de_tentativas = 3
 errou = True
 
 for rodada in range(1, total_de_tentativas+1):
@@ -37,6 +43,9 @@ for rodada in range(1, total_de_tentativas+1):
 		print('Você digitou um número maior do que o número secreto')
 	else:
 		print('Você digitou um número menor do que o número secreto')
+	pontos_perdidos = abs(numero_secreto - chute)
+	pontos = pontos - pontos_perdidos
 
 if(errou): print('O número secreto era {}'.format(numero_secreto))
+print('Você fez {} pontos!'.format(pontos))
 print('Fim do jogo')
