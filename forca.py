@@ -30,11 +30,6 @@ def jogar():
 		print('Você ganhou!!!!')
 	else:
 		print('Você perdeu!!!!')
-		
-
-	palavra_secreta = 'banana'
-	enforcou = False
-	acertou = False
 
 	print('Fim do jogo')
 
